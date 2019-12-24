@@ -58,3 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Sifreleri sifrelemek icin
 gem 'bcrypt'
 gem 'email_validator'
+
+gem 'bootstrap'

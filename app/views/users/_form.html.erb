@@ -1,0 +1,54 @@
+<%= form_with model: @user, local: true, validate: true do |form| %>
+  <% if @user.errors.any? %>
+    <div class="card text-white bg-danger mb-3" style="max-width: 39rem;">
+      <div class="card-header">
+        <h3>Aşağıdaki hataları düzeltip, tekrar deneyiniz.</h3>
+      </div>
+      <div class="card-body">
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li class="text-light"><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.text_field :name, class: "form-control", placeholder: "Ad" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= form.text_field :surname, class: "form-control", placeholder: "Soyad" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :username, class: "form-control", placeholder: "Kullanıcı Adı" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.email_field :email, class: "form-control", placeholder: "Eposta" %>
+  </div>
+
+  <% if params[:action] == "new" || params[:action] == "create" %>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= form.password_field :password, class: "form-control", placeholder: "Şifre" %>
+      </div>
+
+      <div class="form-group col-md-6">
+        <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Şifreyi Doğrula" %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <%= form.submit "Kaydol", class: "btn btn-primary" %>
+    </div>
+  <% else %>
+    <div class="d-flex justify-content-end">
+      <%= form.submit "Güncelle", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>

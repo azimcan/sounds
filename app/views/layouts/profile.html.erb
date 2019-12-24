@@ -1,0 +1,24 @@
+<%= content_for(:content) do %>
+	<div class="row m-2 p-2">
+		<div class="col-2">
+			<%= image_tag "btenca_icon.svg", class: "rounded-circle img-thumbnail", alt: "Responsive image" %>
+		</div>
+
+		<div class="col-10">
+			<h2><%= @user.name %></h2>
+			<p><%= @user.email %></p>
+			<div class="btn-group">
+					<%= link_to "Sesler", profile_path(@user, page: "sesler"), class: "btn btn-dark" %>
+					<%= link_to "Yorumlar", profile_path(@user, page: "yorumlar"), class: "btn btn-dark" %>
+					<% if current_user == @user %>
+						<%= link_to "Profilimi Düzenle", edit_profile_path(@user.username), class: "btn btn-dark" %>
+						<%= link_to "Hesabımı Sil", @user, class: "btn btn-dark", data: {confirm: "Kalıcı olarak hesabınız silinecektir!"}, method: :delete %>
+					<% end %>
+			</div>
+		</div>
+	</div>
+
+	<%= yield :profile_content %>
+<% end %>
+
+<%= render template: "layouts/application" %>

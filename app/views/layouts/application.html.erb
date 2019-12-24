@@ -5,11 +5,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-light"> 
+    <%= render 'layouts/nav_bar' %>
+    <main class="container" role="main">
+      <%= render 'layouts/flash_messages' %>
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </main>
+
+    <footer class="modal-footer">
+    </footer>
+  
   </body>
 </html>
