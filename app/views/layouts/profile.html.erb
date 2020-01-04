@@ -11,13 +11,12 @@
 					<%= link_to "Sesler", profile_path(@user, page: "sesler"), class: "btn btn-dark" %>
 					<%= link_to "Yorumlar", profile_path(@user, page: "yorumlar"), class: "btn btn-dark" %>
 					<% if current_user == @user %>
-						<%= link_to "Profilimi Düzenle", edit_profile_path(@user.username), class: "btn btn-dark" %>
+						<%= link_to "Profilimi Düzenle", edit_profile_path(@user), class: "btn btn-dark" %>
 						<%= link_to "Hesabımı Sil", @user, class: "btn btn-dark", data: {confirm: "Kalıcı olarak hesabınız silinecektir!"}, method: :delete %>
 					<% end %>
 			</div>
 		</div>
 	</div>
-
 	<%= yield :profile_content %>
 <% end %>
 

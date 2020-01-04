@@ -1,11 +1,17 @@
 <% content_for(:profile_content) do %>
   <div class="row m-2 p-2">
     <div class="col-12 shadow-lg p-3 mb-3 bg-dark rounded">
-      <h2 class="text-light"><%#= page.capitalize %></h2>
+      <h2 class="text-light"><%= page.capitalize %></h2>
       <div class="d-flex justify-content-end">
-        <%#= link_to "+", path?(page), class: "btn btn-light" %>
+        <%= add_button(page) %>
       </div>
     </div>
+    
+    <% if @data.blank? %>
+      <p class="col-12">Kullanıcıya ait <%= page %> bulunmamaktadır</p>
+    <% end %>
+
+    <%= render?(page) %>
   </div>
 <% end %>
 

@@ -19,4 +19,3 @@ require("channels")
 
 import "bootstrap";
 import "../stylesheets/application";
-import "player";

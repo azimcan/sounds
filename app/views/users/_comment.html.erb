@@ -1,0 +1,12 @@
+<% unless @data.blank? %>
+  <% @data.each do |comment| %>
+    <div class="col-12 shadow-lg p-3 mb-3 bg-white rounded">
+      <%= link_to comment.sound.name, sound_path(comment.sound), class: "badge badge-info" %>
+      <br>
+      <span class="badge badge-info"><%= comment.user.name %></span> : <%= comment.comment %>
+
+    </div>
+  <% end %>
+<% else %>
+  <p class="col-12">Yorum bulunamadi</p>
+<% end %>

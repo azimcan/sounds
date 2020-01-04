@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
-
+  has_many :comments
+  has_many :sounds
   validates :name,
             presence: true,
             length: { in: 2..16 }
@@ -23,6 +24,10 @@ class User < ApplicationRecord
             presence: true,
             length: { minimum: 8 }
 
+  def to_param
+    username
+  end
+  
   def user_detail
     "#{name} #{surname} -- #{email} -- #{password}"
   end
