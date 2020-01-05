@@ -6,7 +6,7 @@
     <div class="col-12">
     	<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="<%= @sound.location %>"></iframe>
 	    <div class="btn-group d-flex">
-        <%= link_to 'Sepete Ekle', create_cart_item(sound: @sound, page: "sound"), class: "btn btn-secondary" %>
+        <%= link_to 'Sepete Ekle', create_cart_item_path(sound: @sound, page: "sound"), class: "btn btn-secondary" %>
         <%= link_to 'Duzenle', edit_sound_path(@sound), class: "btn btn-secondary" %>
         <%= link_to 'Geri', :back, class: "btn btn-secondary" %>
       </div>
