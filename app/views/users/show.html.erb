@@ -6,11 +6,6 @@
         <%= add_button(page) %>
       </div>
     </div>
-    
-    <% if @data.blank? %>
-      <p class="col-12">Kullanıcıya ait <%= page %> bulunmamaktadır</p>
-    <% end %>
-
     <%= render?(page) %>
   </div>
 <% end %>

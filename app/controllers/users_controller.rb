@@ -23,6 +23,9 @@ class UsersController < ApplicationController
     elsif params[:page] == 'yorumlar'
       @data = Comment.where(user: @user)
       render layout: 'profile', locals: { page: params[:page] }
+    elsif params[:page] == 'siparişler'
+      @data = Order.where(user: @user)
+      render layout: 'profile', locals: { page: params[:page] }
     end
   end
 

@@ -1,0 +1,47 @@
+<div class="m-2 p-2 table-responsive">
+	<% unless @sounds.blank? %>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Sound Name</th>
+					<th scope="col">Tag</th>
+					<th scope="col">Creator</th>
+					<th scope="col">Price</th>
+					<th scope=""></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% total = 0 %>
+				<% @sounds.each_with_index do |sound, i| %>
+					<tr>
+						<th scope="row"><%= i+=1 %></th>
+						<td><%= link_to sound.name, sound_path(sound), class: "badge badge-info" %></td>
+						<td><%= sound.tag %></td>
+						<td><%= link_to sound.user.username, profile_path(sound.user), class: "badge badge-danger" %></td>
+						<td><%= sound.price %> ₺</td>
+						<td>
+							<a href="<%= destroy_cart_item_path(sound: sound.id) %>" data-method="delete" type="button" class="close">
+						    <span aria-hidden="true">&times;</span>
+						  </a>
+						</td>
+						<% total += sound.price %>
+					</tr>
+				<% end %>
+				<tr>
+					<th scope="row"></th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><%= total %> ₺</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<%= render "orders/form" %>
+	
+	<% else %>
+		<p class="text-center">Sepet Bos</p>
+	<% end %>
+</div>

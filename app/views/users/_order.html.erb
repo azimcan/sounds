@@ -1,0 +1,16 @@
+<% unless @data.blank? %>
+  <% @data.each do |order| %>
+    <div class="col-12 shadow-lg p-3 mb-3 bg-white rounded">
+      <% order.order_items.each do |item| %>
+	    	<div class="col-12 shadow-lg p-3 mb-3 bg-white rounded">
+	    		<%= item.sound.name %>
+	    		<%= item.sound.price %>	    		
+				</div>	
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+	<div class="col-12 text-center alert alert-info" role="alert">
+	  Sipariş bulunamadı.
+	</div>
+<% end %>

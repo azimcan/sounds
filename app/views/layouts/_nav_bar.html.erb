@@ -15,6 +15,10 @@
 						<%= link_to "Profilimi Görüntüle", profile_path(current_user.username), class: "dropdown-item" %>
 						<%= link_to "Oturumu Kapat", logout_path, method: :delete, class: "dropdown-item" %>
 					</div>
+					<a class="nav-link" href="<%= show_cart_path %>">
+						Sepet
+						<span class="badge badge-light"><%= session[:cart].blank? ? 0 : session[:cart].size  %></span>
+					</a>
 				</div>
 			<% else %>
 				<ul class="navbar-nav">

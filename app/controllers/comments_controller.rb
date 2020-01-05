@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	before_action :allowed?, only: [:new, :edit, :create, :destroy]
+	before_action :allowed?, only: [:new, :create]
 	def new
 
   end
@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to sound_path(@sound), notice: 'Yorum yapildi.'
+      redirect_to sound_path(@sound), notice: 'Yorum yapıldı.'
     else
       render :new
     end

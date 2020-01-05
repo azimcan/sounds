@@ -1,0 +1,12 @@
+<h2 class="text-center">Yorumlar</h2>
+<% if @sound.comments.blank? %>
+  <div class="col-12 text-center alert alert-info" role="alert">
+    "Yorum yok"
+  </div>
+<% else %>
+  <% @sound.comments.each do |comment| %>
+    <p>
+      <%= link_to comment.user.username, profile_path(comment.user), class: "badge badge-info" %> : <%= comment.comment %>
+    </p>
+  <% end %>
+<% end %>
