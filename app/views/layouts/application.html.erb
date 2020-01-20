@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title> Sounds | <%= content_for?(:title) ? yield(:title) : 'Home' %> </title>
+    <title> Sounds | <%= content_for?(:title) ? yield(:title) : 'Home' %> </title>
+    <%= favicon_link_tag 'icon2.png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
