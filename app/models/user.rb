@@ -29,10 +29,4 @@ class User < ApplicationRecord
   def to_param
     username
   end
-
-  private
-  
-  def user_detail
-    "#{name} #{surname} -- #{email} -- #{password}"
-  end
 end

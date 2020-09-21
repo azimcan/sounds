@@ -1,7 +1,7 @@
 # Kullanici controller
 class UsersController < ApplicationController
   before_action :select_user, only: [:show, :update, :edit, :destroy]
-  before_action :allowed?, only: [:edit, :destroy]
+  before_action :allowed?, only: [:edit, :destroy, :update]
 
   def new
     @user = User.new
